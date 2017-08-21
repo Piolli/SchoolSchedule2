@@ -73,8 +73,7 @@ class SimpleItemTouchHelperCallback(private val mAdapter: ItemTouchHelperAdapter
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
             if (viewHolder is ItemTouchHelperViewHolder) {
                 // Let the view holder know that this item is being moved or dragged
-                val itemViewHolder = viewHolder as ItemTouchHelperViewHolder?
-                itemViewHolder!!.onItemSelected()
+                viewHolder.onItemSelected()
             }
         }
 
@@ -88,8 +87,7 @@ class SimpleItemTouchHelperCallback(private val mAdapter: ItemTouchHelperAdapter
 
         if (viewHolder is ItemTouchHelperViewHolder) {
             // Tell the view holder it's time to restore the idle state
-            val itemViewHolder = viewHolder as ItemTouchHelperViewHolder
-            itemViewHolder.onItemClear()
+            viewHolder.onItemClear()
         }
     }
 
@@ -108,17 +106,17 @@ class SimpleItemTouchHelperCallback(private val mAdapter: ItemTouchHelperAdapter
 interface ItemTouchHelperAdapter {
 
     /**
-     * Called when an item has been dragged far enough to trigger a move. This is called every time
-     * an item is shifted, and **not** at the end of a "drop" event.<br></br>
+     * Called when an schedule_item has been dragged far enough to trigger a move. This is called every time
+     * an schedule_item is shifted, and **not** at the end of a "drop" event.<br></br>
      * <br></br>
      * Implementations should call [RecyclerView.Adapter.notifyItemMoved] after
      * adjusting the underlying data to reflect this move.
 
-     * @param fromPosition The start position of the moved item.
+     * @param fromPosition The start position of the moved schedule_item.
      * *
-     * @param toPosition   Then resolved position of the moved item.
+     * @param toPosition   Then resolved position of the moved schedule_item.
      * *
-     * @return True if the item was moved to the new adapter position.
+     * @return True if the schedule_item was moved to the new adapter position.
      * *
      * *
      * @see RecyclerView.getAdapterPositionFor
@@ -128,12 +126,12 @@ interface ItemTouchHelperAdapter {
 
 
     /**
-     * Called when an item has been dismissed by a swipe.<br></br>
+     * Called when an schedule_item has been dismissed by a swipe.<br></br>
      * <br></br>
      * Implementations should call [RecyclerView.Adapter.notifyItemRemoved] after
      * adjusting the underlying data to reflect this removal.
 
-     * @param position The position of the item dismissed.
+     * @param position The position of the schedule_item dismissed.
      * *
      * *
      * @see RecyclerView.getAdapterPositionFor
@@ -145,8 +143,8 @@ interface ItemTouchHelperAdapter {
 interface ItemTouchHelperViewHolder {
 
     /**
-     * Called when the [ItemTouchHelper] first registers an item as being moved or swiped.
-     * Implementations should update the item view to indicate it's active state.
+     * Called when the [ItemTouchHelper] first registers an schedule_item as being moved or swiped.
+     * Implementations should update the schedule_item view to indicate it's active state.
      */
     fun onItemSelected()
 

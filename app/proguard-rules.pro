@@ -23,3 +23,9 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+-dontwarn com.akexorcist.roundcornerprogressbar.TextRoundCornerProgressBar
+
+-keep class de.jonasrottmann.realmbrowser.* { *; }
+-keep class android.support.v7.widget.SearchView { *; }
+-keep class android.support.v7.view.** { *; }

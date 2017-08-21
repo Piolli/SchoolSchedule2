@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Расписание</string>
-    <string name="title_home">Расписание</string>
-    <string name="title_dashboard">Звонки</string>
-    <string name="title_notifications">Заметки</string>
+    <string name="title_schedule">Расписание</string>
+    <string name="title_timetable">Звонки</string>
+    <string name="title_tasks">Задачи</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -10,4 +10,5 @@
     <string name="id_tag_details_view">id_tag_details_view</string>
     <string name="id_tag_is_expand">id_tag_is_expand</string>
     <string name="info_lesson">Начало урока 8:30\nКонец урока 9:15\nПеремена: 10 минут</string>
+    <string name="title_activity_create_lesson">CreateLessonActivity</string>
 </resources>

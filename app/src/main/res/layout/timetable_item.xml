@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    android:layout_marginTop="2dp"
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp"
+    tools:layout_height="80dp"
+    android:layout_height="wrap_content">
+
+    <android.support.constraint.ConstraintLayout android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/clock_info_item_number_lesson_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:gravity="center_horizontal"
+
+            android:textColor="#606060"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:text="1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/clock_info_item_title_lesson"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="#5e5e5e"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Русский язык"
+            app:layout_constraintStart_toEndOf="@+id/clock_info_item_number_lesson_text_view"
+            android:layout_marginStart="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/clock_info_item_is_now_image_view"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="8dp" />
+
+        <ImageView
+            android:id="@+id/clock_info_item_is_now_image_view"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:srcCompat="@android:drawable/presence_invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="8dp" />
+
+        <TextView
+            android:id="@+id/clock_info_item_free_time_text_view"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+
+            android:textAppearance="@style/TextAppearance.AppCompat"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toStartOf="@+id/clock_info_item_is_now_image_view"
+            app:layout_constraintStart_toEndOf="@+id/clock_info_item_number_lesson_text_view"
+            tools:text="перемена после урока 10 минут"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="4dp"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/clock_info_item_lesson_period"
+            app:layout_constraintVertical_bias="0.142" />
+
+        <TextView
+            android:id="@+id/clock_info_item_lesson_period"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:text="с 8:30 до 9:15"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toStartOf="@+id/clock_info_item_is_now_image_view"
+            app:layout_constraintStart_toEndOf="@+id/clock_info_item_number_lesson_text_view"
+            app:layout_constraintTop_toBottomOf="@+id/clock_info_item_title_lesson" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</android.support.v7.widget.CardView>

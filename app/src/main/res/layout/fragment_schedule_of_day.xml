@@ -1,16 +1,16 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.akamyshev.expandablerecyclerview.MainActivity">
+    android:layout_height="match_parent">
 
     <android.support.v7.widget.RecyclerView
-        android:background="#f2f2f2"
+        android:background="@color/views_background_color"
         android:id="@+id/recycler"
-
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:paddingBottom="80dp"
+        android:clipToPadding="false"
+        android:paddingTop="8dp"
+        >
 
     </android.support.v7.widget.RecyclerView>
 </android.support.constraint.ConstraintLayout>

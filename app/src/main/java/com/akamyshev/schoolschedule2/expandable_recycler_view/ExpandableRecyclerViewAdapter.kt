@@ -15,6 +15,8 @@ import android.view.animation.Animation
 import com.akamyshev.schoolschedule2.R
 import com.daimajia.androidanimations.library.Techniques
 import com.daimajia.androidanimations.library.YoYo
+import io.realm.RealmList
+import io.realm.RealmModel
 
 
 /**
@@ -28,8 +30,8 @@ import com.daimajia.androidanimations.library.YoYo
  * @param data<T> the collection for bind view in adapter
  * @param childLayoutId the xml layout for a item in recycler view
  */
-abstract class ExpandableRecyclerViewAdapter<T, K : ExpandableViewHolder<T>>(
-        val context: Context, @IdRes val childLayoutId: Int, val data: MutableList<T>) : RecyclerView.Adapter<K>() {
+abstract class ExpandableRecyclerViewAdapter<T : RealmModel, K : ExpandableViewHolder<T>>(
+        val context: Context, @IdRes val childLayoutId: Int, var data: RealmList<T>) : RecyclerView.Adapter<K>() {
 
 
     override fun onBindViewHolder(holder: K, position: Int) {

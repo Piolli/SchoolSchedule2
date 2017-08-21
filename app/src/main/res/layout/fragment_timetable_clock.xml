@@ -1,0 +1,95 @@
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/views_background_color"
+    tools:context="com.akamyshev.timetableclock.timetable_mvp.TimetableClock">
+
+    <!--android:background="#ffeeeeee"-->
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/clock_lessons_recycler_view"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:fadeScrollbars="false"
+        android:scrollbarSize="2dp"
+        android:scrollbarStyle="outsideOverlay"
+        android:scrollbars="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintTop_toBottomOf="@+id/clock_progress_view"
+        app:layout_constraintVertical_bias="0.0"
+        custom:layout_constraintStart_toStartOf="parent" />
+
+
+    <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+        android:id="@+id/clock_progress_view"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:rcBackgroundColor="#bfbfbf"
+        app:rcBackgroundPadding="0dp"
+        app:rcMax="100"
+        app:rcProgress="40"
+        app:rcProgressColor="#7da8fd"
+        app:rcRadius="2dp" />
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+
+        android:layout_marginStart="16dp"
+
+        android:layout_marginTop="24dp"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        custom:layout_constraintBottom_toTopOf="@+id/clock_lessons_recycler_view"
+        custom:layout_constraintEnd_toEndOf="parent"
+        custom:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/clock_title_progress_lesson"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal"
+            android:padding="8dp"
+            android:text="Идет 5 урок"
+            android:textSize="18sp" />
+    </android.support.v7.widget.CardView>
+
+    <TextView
+        android:id="@+id/clock_info_remain_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="до конца урока осталось 23 минуты"
+        android:textColor="#fff"
+        app:layout_constraintBottom_toBottomOf="@+id/clock_progress_view"
+        app:layout_constraintEnd_toEndOf="@+id/clock_progress_view"
+        app:layout_constraintStart_toStartOf="@+id/clock_progress_view"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+</android.support.constraint.ConstraintLayout>

@@ -5,7 +5,12 @@ import android.support.v4.view.MotionEventCompat
 
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat
 import android.view.View;
+import com.akamyshev.schoolschedule2.R
+import io.realm.Realm
+import io.realm.RealmList
+import io.realm.RealmModel
 
 import java.util.Collections;
 
@@ -21,8 +26,8 @@ import java.util.Collections;
  * @param data<T> the collection for bind view in adapter
  * @param childLayoutId the xml layout for a item in recycler view
  */
-abstract class DraggableAndExpandableRecyclerViewAdapter<T, K : DraggableAndExpandableViewHolder<T>>
-    (context: Context, data: MutableList<T>, private val mDragStartListener: OnStartDragListener, childLayoutId: Int)
+abstract class DraggableAndExpandableRecyclerViewAdapter<T : RealmModel, K : DraggableAndExpandableViewHolder<T>>
+    (context: Context, data: RealmList<T>, private val mDragStartListener: OnStartDragListener, childLayoutId: Int)
     : ExpandableRecyclerViewAdapter<T, K>(context, childLayoutId, data), ItemTouchHelperAdapter {
 
     override fun onBindViewHolder(holder: K, position: Int) {
@@ -40,13 +45,18 @@ abstract class DraggableAndExpandableRecyclerViewAdapter<T, K : DraggableAndExpa
 
 
     override fun onItemDismiss(position: Int) {
-        data.removeAt(position)
-        notifyItemRemoved(position)
+        Realm.getDefaultInstance().executeTransaction {
+            data.removeAt(position)
+        }
+//        notifyItemRemoved(position)
     }
 
     override fun onItemMove(fromPosition: Int, toPosition: Int): Boolean {
-        Collections.swap(data, fromPosition, toPosition)
-        notifyItemMoved(fromPosition, toPosition)
+        Realm.getDefaultInstance().executeTransaction {
+            data.move(fromPosition, toPosition)
+//            Collections.swap(data, fromPosition, toPosition)
+            notifyItemMoved(fromPosition, toPosition)
+        }
         return true
     }
 
@@ -56,9 +66,10 @@ abstract class DraggableAndExpandableRecyclerViewAdapter<T, K : DraggableAndExpa
 }
 
 abstract class DraggableAndExpandableViewHolder<in T>(itemView: View) : ExpandableViewHolder<T>(itemView), ItemTouchHelperViewHolder {
+    val backColorOnDrag = ContextCompat.getColor(itemView.context, R.color.views_background_color)
 
     override fun onItemSelected() {
-        itemView.setBackgroundColor(Color.LTGRAY)
+        itemView.setBackgroundColor(backColorOnDrag)
     }
 
     override fun onItemClear() {
